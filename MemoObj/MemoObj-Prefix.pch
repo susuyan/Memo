@@ -1,0 +1,31 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define kmemoID @"memoID"
+#define kContent @"content"
+#define kCreate_at @"create_at"
+#define kTimeAgo @"kTimeAgo"
+#define kImageData @"imagedata"
+#define kRecordData @"recordData"
+
+#define kNotiUpdateData @"UpdateData"
+
+#define KconsumerKey @"susuyan188-2554"
+#define KconsumerSecret @"5ff986c47787847d"
+
+
+

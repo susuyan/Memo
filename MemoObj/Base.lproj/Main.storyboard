@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="faU-Jb-XAH">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="AK5-Qn-UgR">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="faU-Jb-XAH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Um3-ea-0gK">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xIQ-wr-V7g" kind="relationship" relationship="rootViewController" id="eY4-jZ-wYC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Szu-l6-rFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-840" y="-827"/>
+        </scene>
+        <!--Memo List Controller - Memo-->
+        <scene sceneID="bBR-Yy-S5W">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="xIQ-wr-V7g" customClass="MemoListController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="jwC-pb-KqW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewLayout key="collectionViewLayout" id="QtQ-bi-7Rj" customClass="MTDraggableCardLayout"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memoCell" id="DLC-uT-RFX" customClass="MemoCell">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="当我们花了很多的精力,我们不愿从头来过,即使非得如此时,也是." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="paO-Ph-h3Z">
+                                            <rect key="frame" x="14" y="12" width="280" height="48"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZi-xL-aNB">
+                                            <rect key="frame" x="14" y="56" width="136" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <size key="customSize" width="320" height="200"/>
+                                <connections>
+                                    <outlet property="memoContent" destination="paO-Ph-h3Z" id="jmh-eX-uEe"/>
+                                    <outlet property="memoTimeAgo" destination="bZi-xL-aNB" id="QBa-Gb-bV0"/>
+                                    <segue destination="iBO-T1-oD4" kind="push" identifier="modify" id="1EY-ka-1G0"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="xIQ-wr-V7g" id="daV-bL-EPY"/>
+                            <outlet property="delegate" destination="xIQ-wr-V7g" id="ONb-XB-rXl"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Memo" id="tzX-sA-0yB">
+                        <barButtonItem key="leftBarButtonItem" tag="1001" systemItem="add" id="GOT-iA-FCG">
+                            <connections>
+                                <segue destination="iBO-T1-oD4" kind="push" identifier="addmemo" id="hRE-eM-eCD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="同步" id="h0T-kV-abv">
+                            <connections>
+                                <action selector="syncMemo:" destination="xIQ-wr-V7g" id="n2z-l5-jfa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="464-8G-3Kg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-461" y="-827"/>
+        </scene>
+        <!--Memo Edit Controller-->
+        <scene sceneID="t5h-bt-Jhc">
+            <objects>
+                <viewController id="iBO-T1-oD4" customClass="MemoEditController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L3C-ms-F3y"/>
+                        <viewControllerLayoutGuide type="bottom" id="sHZ-xG-mDh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5qC-FW-zgx">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="当我们花了很多的精力,我们不愿从头来过,即使非得如此时,也是." translatesAutoresizingMaskIntoConstraints="NO" id="xUm-hx-zTD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="luk-gw-4a3" appends="YES" id="7xe-fh-9C9"/>
+                                </connections>
+                            </textView>
+                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sV5-WN-zEV">
+                                <rect key="frame" x="15" y="422" width="61" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mS-hh-UMy">
+                                <rect key="frame" x="103" y="422" width="61" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="audio">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playRecord:" destination="iBO-T1-oD4" eventType="touchUpInside" id="aK2-eE-R7y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8DM-43-ZKT">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="6Ql-rJ-4YT">
+                            <connections>
+                                <action selector="saveMemo:" destination="iBO-T1-oD4" id="l1L-wO-TlG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageview" destination="sV5-WN-zEV" id="9RR-Ft-DJh"/>
+                        <outlet property="music" destination="9mS-hh-UMy" id="0zz-lX-wIo"/>
+                        <outlet property="textview" destination="xUm-hx-zTD" id="LzC-9Z-Fe6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEG-M4-zZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="luk-gw-4a3">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="iBO-T1-oD4" id="ruz-5J-TtO"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-56" y="-434"/>
+        </scene>
+        <!--Memo Search Controller-->
+        <scene sceneID="fgL-Bg-IZi">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="bmX-Mm-fmU" customClass="MemoSearchController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q7x-mS-uCU"/>
+                        <viewControllerLayoutGuide type="bottom" id="KgC-9K-esq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dBe-9X-rMa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Seach" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-nn-YQn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ovi-qA-m1l">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="YzV-Kc-fqG">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YzV-Kc-fqG" id="cVw-X1-agz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bmX-Mm-fmU" id="E5g-p7-vBQ"/>
+                                    <outlet property="delegate" destination="bmX-Mm-fmU" id="lsn-90-1Bt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="gTj-nn-YQn" id="yMP-Gs-8xu"/>
+                        <outlet property="tableview" destination="ovi-qA-m1l" id="iUb-OX-CW9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t6b-rK-Eiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="563" y="-819"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="audio" width="80" height="86"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="1EY-ka-1G0"/>
+    </inferredMetricsTieBreakers>
+</document>

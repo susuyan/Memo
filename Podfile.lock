@@ -1,0 +1,26 @@
+PODS:
+  - evernote-cloud-sdk-ios (2.0.2)
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - MTCardLayout (1.0.3)
+  - NSDate+TimeAgo (1.0.3)
+  - UPStackMenu (1.0.0)
+
+DEPENDENCIES:
+  - evernote-cloud-sdk-ios
+  - FMDB
+  - MTCardLayout
+  - NSDate+TimeAgo
+  - UPStackMenu
+
+SPEC CHECKSUMS:
+  evernote-cloud-sdk-ios: 7a6e5402b837ea79ef0179caff5ffe7b4f235615
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  MTCardLayout: 3baf5ac3bd21e6149b561dd7bca708f1ceccf962
+  NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
+  UPStackMenu: 4e834206f76451c1d78a6cacee46e47ecf83b174
+
+COCOAPODS: 0.37.0.rc.2
